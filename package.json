@@ -1,5 +1,5 @@
 {
-  "name": "irctct-ticket-helper",
+  "name": "irctc-ticket-helper",
   "version": "1.0.0",
   "description": "A helper tool for IRCTC ticket booking and travel assistance.",
   "main": "index.js",

@@ -28,6 +28,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Validate passenger count
+    if (body.passengerCount < 1 || body.passengerCount > 6) {
+      return NextResponse.json(
+        { error: 'Passenger count must be between 1 and 6' },
+        { status: 400 }
+      )
+    }
+
     // Check if API key is configured
     if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json(
@@ -65,7 +73,7 @@ Provide a comprehensive analysis following the structured format with all 7 sect
         { role: 'user', content: userPrompt }
       ],
       temperature: 0.7,
-      max_tokens: 2000,
+      max_tokens: 3000,
     })
 
     const analysisText = completion.choices[0]?.message?.content || ''

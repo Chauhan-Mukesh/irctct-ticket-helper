@@ -128,6 +128,7 @@ export default function Home() {
                     name="travelDate"
                     value={formData.travelDate}
                     onChange={handleInputChange}
+                    min={new Date().toISOString().split('T')[0]}
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                     required
                   />
@@ -190,6 +191,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={loading}
+                aria-busy={loading}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 {loading ? 'Analyzing...' : 'Get Expert Recommendations'}
